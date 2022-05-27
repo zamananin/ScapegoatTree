@@ -119,20 +119,6 @@ public class ScapegoatTree<T extends Comparable<T>> extends AbstractSet<T> imple
         return size;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-        ScapegoatTree<?> that = (ScapegoatTree<?>) o;
-        return Objects.equals(root, that.root) && Objects.equals(size, that.size) && Objects.equals(alpha, that.alpha);
-    }
-
-    @Override
-    public int hashCode() {
-        return root.hashCode() + size.hashCode() + alpha.hashCode();
-    }
-
     private Node<T> find(T value) {
         if (root == null) return null;
         return find(root, value);
